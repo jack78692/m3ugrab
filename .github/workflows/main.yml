@@ -1,0 +1,11 @@
+name: hello_workflow
+on: [push]
+jobs:
+  print-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Hello world using echo
+        run: echo "$(<combine_m3u8.py)"
+      - name: Hello world using cat
+        run: cat combine_m3u8.py
