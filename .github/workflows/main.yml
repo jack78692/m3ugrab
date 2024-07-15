@@ -6,7 +6,7 @@ on:
       - main  # Adjust branch name as needed
 
 jobs:
-  combine_m3u8_job:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,5 +22,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt  # If you have requirements
       
+      - name: Lint code with flake8
+        run: |
+          pip install flake8
+          flake8 .  # Adjust to lint specific files or directories
+        
+      - name: Run tests (if applicable)
+        run: |
+          # Add commands to run tests here if you have them
+        
       - name: Run combine_m3u8.py script
         run: python combine_m3u8.py  # Adjust if script location or name is different
